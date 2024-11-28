@@ -343,8 +343,10 @@
     }
 
     .camera-window {
-        width: 80%; /* Increase camera window size */
-        height: 150px; /* Set a specific height */
+        width: 75%;
+        height: 250px;
+        max-height: 400px;
+        border-radius: 50%;
     }
 
     .button {
