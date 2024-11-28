@@ -1,0 +1,448 @@
+/* General Styles */
+.container {
+    display: flex;
+    height: 100vh;
+    background-color: #f5f5f5;
+    font-family: "Courier New", monospace; /* Retro vibe font */
+}
+
+/* Left Panel */
+.left-panel {
+    width: 20%;
+    background-color: #BDBCB8;
+    background: linear-gradient(to bottom, #1b3b5f, #12232e); /* Deep teal gradient */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* Retro separation */
+}
+
+/* Camera Window */
+.camera-window {
+    width: 50%;
+    max-width: 400px;
+    height: 60%;
+    max-height: 400px;
+    background-color: black;
+    background-image: url(/public/Orange\ Blue\ Modern\ Bold\ Illustrative\ Music\ Studio\ Logo.png);
+    background-position: center;
+    border-radius: 50%;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 2px solid white;
+    transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.camera-window.active {
+    background-color: transparent;
+    border-color: #2ecc71;
+}
+
+/* Ensuring Webcam fills the circle while maintaining aspect ratio */
+.webcam-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video fills the circle without distortion */
+    object-position: center; /* Ensures the video stays centered */
+    transform: scaleX(-1); /* Retro-style mirrored feed */
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 30px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #222;
+    border: 2px solid #222;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #f4f4f4;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    box-shadow: 2px 2px 0px #222, 4px 4px 0px #888;
+}
+
+/* Hover: Subtle 3D effect */
+.button:hover {
+    background: #ddd;
+    box-shadow: 1px 1px 0px #222, 2px 2px 0px #888;
+    transform: translate(-1px, -1px);
+}
+
+/* Active state */
+.button:active {
+    background: #ccc;
+    box-shadow: 0px 0px 0px #222;
+    transform: translate(1px, 1px);
+}
+
+/* Specific Buttons */
+.start-camera {
+    background: linear-gradient(to bottom, #eaeaea, #d9d9d9);
+    color: #444;
+    border-color: #444;
+}
+
+.logout {
+    background: linear-gradient(to bottom, #f9f9f9, #dcdcdc);
+    color: #333;
+    border-color: #333;
+}
+
+.refresh {
+    background-color: #2ecc71;
+    color: white;
+    margin-bottom: 2px;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Retro glow effect for buttons */
+.button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.1) 10px,
+        rgba(255, 255, 255, 0.1) 10px,
+        rgba(255, 255, 255, 0.1) 20px
+    );
+    z-index: -1;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Hover intensifies glow */
+.button:hover::before {
+    opacity: 0.7;
+}
+
+/* Typewriter animation for button text */
+.button:hover span {
+    display: inline-block;
+    animation: retro-type 0.5s steps(10, end) forwards;
+}
+
+@keyframes retro-type {
+    0% { letter-spacing: 10px; opacity: 0; }
+    100% { letter-spacing: normal; opacity: 1; }
+}
+
+/* Main Section */
+.main-section {
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: #f5f5f5;
+    background-color: #F2BFA4; /* Muted green for harmony with a retro theme */
+    box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.1); /* Subtle retro texture */
+    max-height: 100%; /* Ensures the section takes the full height */
+    /* background-image: url(/public/grunge-stained-old-paper-texture.jpg); */
+    /* image-resolution: 300px; */
+    flex-grow: 1; /* Allow the section to grow */
+}
+
+/* Mood Title */
+.mood-title {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #2c3e50;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    animation: fade-in 1s ease-out forwards;
+}
+
+/* Fade-in animation for the title */
+@keyframes fade-in {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Language Select Dropdown */
+.language-select {
+    margin: 20px 0;
+    position: relative;
+    font-size: 1rem;
+    font-family: "Courier New", monospace; /* Retro font */
+    color: #2c3e50;
+    display: flex; /* Change to flex for inline elements */
+    align-items: center; /* Align items in the center */
+}
+
+.language-select label {
+    font-size: 18px; /* Larger size for emphasis */
+    color: #2c3e50;
+    margin-right: 10px; /* Add space between label and dropdown */
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.language-select select {
+    padding: 10px 15px;
+    font-size: 14px;
+    width: 150px;
+    font-family: "Courier New", monospace;
+    background: #f4f4f4; /* Light grey background for retro look */
+    border: 2px solid #2c3e50;
+    border-radius: 5px;
+    color: #2c3e50;
+    appearance: none; /* Removes the default dropdown arrow */
+    cursor: pointer;
+    box-shadow: 2px 2px 0px #2c3e50, 4px 4px 0px #888; /* Retro shadow effect */
+    transition: background-color 0.3s, transform 0.2s ease;
+    position: relative;
+}
+
+.language-select select:hover {
+    background: #ddd;
+    transform: translate(-1px, -1px);
+    box-shadow: 1px 1px 0px #2c3e50, 2px 2px 0px #888;
+}
+
+.language-select select:focus {
+    outline: none;
+    background: #eee;
+    border-color: #2ecc71;
+}
+
+.language-select::after {
+    content: "▼"; /* Retro dropdown arrow */
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Adjust spacing to fit better */
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #2c3e50;
+    pointer-events: none;
+}
+
+.tracks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+    width: 100%;
+    margin-top: 24px;
+    padding-bottom: 60px; /* Ensure space for the button at the bottom */
+    flex-grow: 1; /* Allow the grid to grow and take available space */
+}
+
+/* Track Cards */
+.track {
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    padding: 2px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.track:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#flashing-text {
+    font-size: 4rem; /* Increase the font    size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+#flashing-text span {
+    display: inline-block;
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: glow-animation 1.5s ease-in-out infinite, flash-animation 2s linear infinite;
+}
+
+/* Glowing effect on each letter */
+@keyframes glow-animation {
+    0%, 100% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.5); }
+    50% { text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(0, 255, 255, 1), 0 0 40px rgba(0, 255, 255, 1); }
+}
+
+/* Flashing or tubelight effect */
+@keyframes flash-animation {
+    0% { opacity: 0.5; }
+    25% { opacity: 1; }
+    50% { opacity: 0.5; }
+    75% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+/* Adding slight delays to make each letter flash independently */
+#flashing-text span:nth-child(1) { animation-delay: 0s; }
+#flashing-text span:nth-child(2) { animation-delay: 0.1s; }
+#flashing-text span:nth-child(3) { animation-delay: 0.2s; }
+#flashing-text span:nth-child(4) { animation-delay: 0.3s; }
+#flashing-text span:nth-child(5) { animation-delay: 0.4s; }
+#flashing-text span:nth-child(6) { animation-delay: 0.5s; }
+#flashing-text span:nth-child(7) { animation-delay: 0.6s; }
+#flashing-text span:nth-child(8) { animation-delay: 0.7s; }
+#flashing-text span:nth-child(9) { animation-delay: 0.8s; }
+#flashing-text span:nth-child(10) { animation-delay: 0.9s; }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column; /* Stack panels vertically */
+        height: auto;
+    }
+
+    .left-panel {
+        width: 100%; /* Full width on smaller screens */
+        height: auto; /* Allow height to adjust */
+        flex-direction: row; /* Change to row for camera and buttons */
+        justify-content: space-between; /* Space out items */
+        padding: 10px; /* Adjust padding */
+    }
+
+    .camera-window {
+        width: 40%; /* Adjust camera window size */
+        height: auto; /* Allow height to adjust */
+        max-height: 200px; /* Set a max height */
+        position: relative; /* Change to relative for stacking */
+        margin: 0; /* Remove margin */
+    }
+
+    .main-section {
+        width: 100%; /* Full width for main section */
+        padding: 10px; /* Adjust padding */
+    }
+
+    /* .tracks-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust grid for smaller screens */
+    /* } */ 
+}
+
+@media (max-width: 600px) {
+    .left-panel {
+        flex-direction: column; /* Stack buttons below camera */
+        align-items: center; /* Center align items */
+    }
+
+    .camera-window {
+        width: 80%; /* Increase camera window size */
+        height: 150px; /* Set a specific height */
+    }
+
+    .button {
+        padding: 8px 20px; /* Adjust button size */
+        font-size: 12px; /* Smaller font size */
+    }
+
+    .mood-title {
+        font-size: 1.2rem; /* Smaller title size */
+    }
+
+    #flashing-text {
+        font-size: 2.5rem; /* Smaller flashing text */
+    }
+}
+
+@media 
+(max-width:600px) {
+    .start-camera{
+        justify-self: flex-start;
+    }
+}
+
+.tracks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    place-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 24px;
+    padding-bottom: 60px; /* Ensure space for the button at the bottom */
+    flex-grow: 1; /* Allow the grid to grow and take available space */
+}
+
+/* Track Cards */
+.track {
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    padding: 2px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.track:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+  
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+    @media (max-width: 1200px) {
+        .tracks-grid {
+            grid-template-columns: repeat(2, 1fr); /* Set to 2 tracks */
+            gap: 20px; /* Adjust gap for sufficient spacing */
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .tracks-grid {
+        grid-template-columns: repeat(2, minmax(200px, 1fr)); /* Adjust for smaller screens */
+        gap: 20px;
+        place-items: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .tracks-grid {
+        grid-template-columns: repeat(1, minmax(150px, 1fr)); /* Stack cards for mobile */
+    }
+}
+
+/* Main.css */
+
+/* Styling the container for the audio visualizer */
+.audio-visualizer-container {
+    width: 100%;
+    max-width: 600px; /* Limit the width for better responsiveness */
+    margin: 20px auto; /* Center it horizontally with some margin */
+    padding: 10px;
+    border: 1px solid #ddd; /* Optional: Add a border around the visualizer */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #111; /* Dark background for the visualizer */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for better aesthetics */
+  }
+  
+  /* Styling the waveform container */
+  .audio-visualizer-container > div {
+    width: 100%;
+    height: 150px; /* Set the height of the visualizer */
+  }
+  
+  /* Optional: Add some text below the visualizer */
+  .audio-visualizer-info {
+    color: #fff; /* White color for text */
+    font-size: 14px; /* Slightly smaller text */
+    text-align: center; /* Center the text */
+    margin-top: 10px; /* Add some space above the text */
+  }
+  

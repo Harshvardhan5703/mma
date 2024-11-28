@@ -1,38 +1,51 @@
-.App {
-  text-align: center;
+
+
+/* Mood Title Styles */
+.mood-title {
+  margin: 20px 0;
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+}
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .button {
+        font-size: 16px;
+    }
+
+    .mood-title {
+        font-size: 24px;
+    }
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@media (max-width: 480px) {
+    .button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .mood-title {
+        font-size: 20px;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"] {
+        width: 90%;
+    }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.language-selection {
+  margin: 20px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.language-selection label {
+  margin-right: 10px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.language-selection select {
+  padding: 5px;
+  font-size: 16px;
 }

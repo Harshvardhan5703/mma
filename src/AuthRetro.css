@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    font-family: 'Press Start 2P', cursive; /* Retro font */
+    background: linear-gradient(to bottom right, #ff6f61, #6a5acd); /* Vibrant gradient */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .auth-container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border: 5px solid #ffcc00; /* Thick border for retro effect */
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .auth-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  }
+  
+  .auth-animation {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    margin: 20px 0;
+  }
+  
+  .auth-description {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .auth-button {
+    background-color: #ffcc00; /* Bright button color */
+    border: none;
+    color: black;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .auth-button:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+  }
+  
+  .spotify-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }

@@ -1,0 +1,409 @@
+/* Body background styling */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #070707;
+  background-image: url('/public/Audio\ tapes.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Main container */
+.auth-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 90%;
+  max-width: 700px; /* Compact but spacious enough for content */
+  background: linear-gradient(
+      to bottom right,
+      rgba(34, 34, 34, 0.9),
+      rgba(17, 17, 17, 0.95)
+  );
+  border: 2px solid #1db954;
+  border-radius: 15px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  overflow: hidden;
+  text-align: center;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Left section (image) */
+.auth-left {
+  width: 40%; /* Adjusted for smaller image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 15px 0 0 15px;
+}
+
+.auth-left img {
+  width: 70%; /* Reduced width */
+  height: auto;
+  max-height: 180px; /* Fixed height */
+  object-fit: cover;
+  border-radius: 15px 0 0 15px;
+  filter: grayscale(20%) contrast(1.2);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.auth-left img:hover {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+/* Right section */
+.auth-right {
+  width: 60%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #f4f4f4;
+  font-family: "Courier New", monospace;
+}
+
+.auth-heading {
+  font-size: 32px; /* Larger font size */
+  font-weight: 700;
+  letter-spacing: 2px; /* Add spacing between letters */
+  text-transform: uppercase; /* Capitalize all letters for emphasis */
+  margin-bottom: 20px;
+  color: transparent;
+  background: linear-gradient(to left, #1db954, #1ed760);
+  background-clip: text;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6); /* Strong shadow for emphasis */
+  animation: fadeInText 1.5s ease-out; /* Animation for text appearance */
+}
+
+/* Text animation */
+@keyframes fadeInText {
+  0% {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.auth-description {
+  font-size: 16px; /* Slightly larger font */
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: #d4d4d4;
+}
+
+/* Button styling */
+.spotify-button {
+  background: #1db954;
+  color: white;
+  border: 2px solid #0f8d38;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
+}
+
+.spotify-button:hover {
+  background: #1ed760;
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 255, 0, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+      transform: scale(0.9);
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+.auth-heading {
+  font-size: 3rem;
+  text-align: center;
+  color: #fff;
+}
+
+.flickering-text {
+  font-size: 5rem; /* Larger text size */
+  font-weight: bold;
+  display: inline-block;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3); /* Light emission effect */
+}
+
+.letter {
+  display: inline-block;
+  color: #fff;
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+/* Random flicker animation with varied durations and delays */
+@keyframes flickerEffect {
+  0% {
+      opacity: 1;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.6), 0 0 50px rgba(255, 255, 255, 0.4);
+  }
+  20% {
+      opacity: 0.7;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.5), 0 0 45px rgba(255, 255, 255, 0.3);
+  }
+  40% {
+      opacity: 1;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.6), 0 0 50px rgba(255, 255, 255, 0.4);
+  }
+  60% {
+      opacity: 0.5;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 25px rgba(255, 255, 255, 0.4), 0 0 45px rgba(255, 255, 255, 0.2);
+  }
+  80% {
+      opacity: 1;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.6), 0 0 50px rgba(255, 255, 255, 0.4);
+  }
+  100% {
+      opacity: 0.3;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 25px rgba(255, 255, 255, 0.4), 0 0 45px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Apply flicker effect only to "o", "d", and "y" with random timing and delays */
+.flickering-text .letter.flicker {
+  animation: flickerEffect 2s infinite;
+}
+
+/* Assign random delays and durations */
+.flickering-text .letter.flicker:nth-child(2) {
+  animation-delay: 0.3s;
+  animation-duration: 1.5s; /* Randomize flicker speed */
+}
+
+.flickering-text .letter.flicker:nth-child(4) {
+  animation-delay: 0.5s;
+  animation-duration: 2s;
+}
+
+.flickering-text .letter.flicker:nth-child(7) {
+  animation-delay: 0.7s;
+  animation-duration: 3s;
+}
+#know{
+  font-family:cursive;
+}
+#read{
+  text-decoration: none;
+  color: #1ed760;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+  background:none;
+  border:none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+
+    /* Hover effect for links */
+ #read:hover {
+          color: #ffcccb; /* Light coral color on hover */
+          transform: translateY(-3px); /* Slight lift effect */
+      }
+
+      /* Underline effect on hover */
+  #read::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -3px;
+          width: 100%;
+          height: 2px;
+          background-color: #ffcccb;
+          transform: scaleX(0);
+          transition: transform 0.3s ease;
+      }
+
+ #read:hover::after {
+          transform: scaleX(1); 
+      }
+      
+
+/* --- RESPONSIVENESS --- */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .auth-container {
+      flex-direction: column;
+      width: 85%;
+  }
+
+  .auth-left {
+      width: 100%;
+      border-radius: 15px 15px 0 0;
+  }
+
+  .auth-right {
+      width: 100%;
+      padding: 15px;
+  }
+
+  .auth-heading {
+      font-size: 26px;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  .auth-description {
+      font-size: 14px;
+  }
+
+  .spotify-button {
+      font-size: 14px;
+      padding: 10px 25px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .auth-container {
+      flex-direction: column;
+      width: 95%;
+  }
+
+  .auth-left img {
+      max-height: 150px;
+  }
+
+  .auth-heading {
+      font-size: 22px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .auth-description {
+      font-size: 12px;
+  }
+
+  .spotify-button {
+      font-size: 12px;
+      padding: 8px 20px;
+  }
+}
+@media (max-width:408px) {
+  .flickering-text{
+    font-size:4rem ;
+  }
+  
+}
+
+/* Overlay for dialog */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Dialog box */
+.dialog-box {
+  width: 80%;
+  max-width: 500px;
+  background: #f5f5dc; /* Light paper texture */
+  border-radius: 5px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  background-image: url('/public/grunge-stained-old-paper-texture.jpg'); /* Add paper texture */
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform-origin: center top;
+  transform: rotateX(90deg) scaleY(0);
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* Unfold animation */
+.dialog-box.unfold {
+  animation: unfold 0.8s ease forwards;
+}
+
+/* Fold animation */
+.dialog-box.fold {
+  animation: fold 0.8s ease forwards;
+}
+
+/* Unfold keyframes */
+@keyframes unfold {
+  0% {
+    transform: rotateX(90deg) scaleY(0);
+    opacity: 0;
+  }
+  50% {
+    transform: rotateX(45deg) scaleY(0.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotateX(0deg) scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* Fold keyframes */
+@keyframes fold {
+  0% {
+    transform: rotateX(0deg) scaleY(1);
+    opacity: 1;
+  }
+  50% {
+    transform: rotateX(45deg) scaleY(0.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotateX(90deg) scaleY(0);
+    opacity: 0;
+  }
+}
+
+/* Dialog content */
+.dialog-content {
+  text-align: center;
+  font-family: "Georgia", serif;
+  color: #333;
+}
+
+.dialog-content p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.close-button {
+  margin-top: 15px;
+  background: #333;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background: #555;
+}
+
