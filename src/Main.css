@@ -317,8 +317,8 @@
     }
 
     .camera-window {
-        width: 40%; /* Adjust camera window size */
-        height: auto; /* Allow height to adjust */
+        width: 27%; /* Adjust camera window size */
+        height: 150px; /* Allow height to adjust */
         max-height: 200px; /* Set a max height */
         position: relative; /* Change to relative for stacking */
         margin: 0; /* Remove margin */
@@ -338,11 +338,13 @@
     .left-panel {
         flex-direction: column; /* Stack buttons below camera */
         align-items: center; /* Center align items */
+        justify-content: center;
+        align-content: center;
     }
 
     .camera-window {
         width: 80%; /* Increase camera window size */
-        height: auto; /* Set a specific height */
+        height: 150px; /* Set a specific height */
     }
 
     .button {

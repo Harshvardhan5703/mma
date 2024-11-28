@@ -125,7 +125,7 @@ const Main = () => {
             )
           )}
         </div>
-        {audioUrl && <AudioVisualizer audioUrl={audioUrl} />}
+       
         <button onClick={handleStartCamera} className="button start-camera">
           {cameraOn ? "Detecting..." : "Start Camera"}
         </button>
