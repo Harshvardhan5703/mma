@@ -342,7 +342,7 @@
 
     .camera-window {
         width: 80%; /* Increase camera window size */
-        height: 150px; /* Set a specific height */
+        height: auto; /* Set a specific height */
     }
 
     .button {

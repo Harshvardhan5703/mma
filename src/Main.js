@@ -181,7 +181,7 @@ const Main = () => {
                 onClick={() => handleTrackSelect(track.preview_url)} 
               ></iframe>              
             ))
-          ) : (!loadingTracks && tracks.length === 0 && mood !== "Detecting..." && (
+          ) : (!loadingTracks && tracks.length === 0 && mood !== "Detecting..." && mood !=="No face detected" && (
              <Paper/> 
           ))}
         </div>

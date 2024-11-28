@@ -70,12 +70,8 @@ const Auth = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="dialog-content">
-              <p>FIRST <em> I don't store any of your data, the song preference is between you and Spotify.</em><br/>
-                You authorize me to see your Spotify, then I get to know about your music choice, then,
-                 whenever you show me your beautiful face, I will detect your mood,I will also show you the
-                 your face at detection and then based on your mood, language and music choice, fetch you songs.<br/>
-                 <em>I'm learning...</em>
-              </p>
+            <p>First and foremost, I want to clarify that I do not store any of your personal data.<br/>
+             Your music preferences are entirely between you and Spotify. Once you grant me permission to access your Spotify account, I will be able to understand your music tastes. Then, whenever you show me your beautiful face, I will analyze your mood through facial recognition. Along with displaying your face during the detection, I will fetch music recommendations based on your mood, preferred language, and musical choices.<br/> <em>I'm still learning and improving...</em></p>
               <button onClick={handleCloseDialog} className="close-button">
                 Close
               </button>
