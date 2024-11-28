@@ -2,9 +2,10 @@ import SpotifyWebApi from "spotify-web-api-js";
 
 const spotifyApi = new SpotifyWebApi();
 
-const CLIENT_ID = "7a7d53dcaab94357921a491c45fb8eb9";
-const REDIRECT_URI = "http://localhost:3000/callback";
-const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
+const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI;
+const AUTH_ENDPOINT = process.env.REACT_APP_AUTH_ENDPOINT;
+
 const RESPONSE_TYPE = "token";
 
 const moodToGenreMap = {
