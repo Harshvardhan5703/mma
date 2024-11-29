@@ -169,6 +169,7 @@
     background: linear-gradient(135deg, #e63946, #ffd1dc);
     background: linear-gradient(135deg, #00bfae, #ff6f00); */
     background-color: #CCCCFF;
+    background: linear-gradient(0deg, #7aa5b3, #d88ca2);
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 30px rgba(0, 0, 0, 0.2);
 
 }
