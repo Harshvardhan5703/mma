@@ -17,7 +17,6 @@ const Main = () => {
   const [lastFrame, setLastFrame] = useState(null); // State to store the last frame image
   const [loadingTracks, setLoadingTracks] = useState(false); // Track loading state
   const webcamRef = useRef(null);
-  const [audioUrl, setAudioUrl] = useState('https://soundcloud.com/chrisbjerken/you-still-have-my-heart?utm_source=clipboard&utm_campaign=wtshare&utm_medium=widget&utm_content=https%253A%252F%252Fsoundcloud.com%252Fchrisbjerken%252Fyou-still-have-my-heart');
   // const navigate = useNavigate();
 
   const loadModels = async () => {
@@ -61,12 +60,7 @@ const Main = () => {
       }
     }
   };
-  const handleTrackSelect = (trackUrl) => {
-    setAudioUrl(trackUrl); // Set the audio URL when a track is selected
-    console.log(trackUrl);
-    // if (!trackUrl)
-    // audioUrl="https://soundcloud.com/chrisbjerken/you-still-have-my-heart?utm_source=clipboard&utm_campaign=wtshare&utm_medium=widget&utm_content=https%253A%252F%252Fsoundcloud.com%252Fchrisbjerken%252Fyou-still-have-my-heart"
-  };
+
   const handleStartCamera = () => {
     setCameraOn(true);
     setCameraReady(false);
@@ -113,7 +107,7 @@ const Main = () => {
                 facingMode: "user",
               }}
               className="webcam-video"
-              screenshotFormat="image/jpeg" // Specify the screenshot format
+              screenshotFormat="image/jpeg" 
             />
           ) : (
             lastFrame && (
@@ -178,14 +172,14 @@ const Main = () => {
                 allow="encrypted-media"
                 title={track.name}
                 className="track"
-                onClick={() => handleTrackSelect(track.preview_url)} 
+                // onClick={() => handleTrackSelect(track.preview_url)} 
               ></iframe>              
             ))
           ) : (!loadingTracks && tracks.length === 0 && mood !== "Detecting..." && mood !=="No face detected" && (
              <Paper/> 
           ))}
         </div>
-        {audioUrl && <AudioVisualizer audioUrl={audioUrl} />}
+        {/* {audioUrl && <AudioVisualizer audioUrl={audioUrl} />} */}
       </div>
     </div>
   );
