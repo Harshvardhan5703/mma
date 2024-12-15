@@ -1,18 +1,25 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAccessTokenFromUrl, setSpotifyAccessToken } from "./spotifyService";
+import { getAccessTokenFromCode, setSpotifyAccessToken } from "./spotifyService";
 
 const CallbackPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = getAccessTokenFromUrl(); // Extract token from URL
-    if (token) {
-      setSpotifyAccessToken(token); // Set token in Spotify API client
-      navigate("/main"); // Redirect to the main app page
+    const queryParams = new URLSearchParams(window.location.search);
+    const code = queryParams.get('code');
+
+    if (code) {
+      getAccessTokenFromCode(code).then(tokenData => {
+        setSpotifyAccessToken(tokenData);
+        navigate("/main");
+      }).catch(error => {
+        console.error("Failed to obtain access token:", error);
+        navigate("/"); // Redirect back to auth page on error
+      });
     } else {
-      console.error("No token found in URL.");
-      navigate("/"); // Redirect back to auth page
+      console.error("No code found in URL.");
+      navigate("/"); // Redirect back to auth page if no code
     }
   }, [navigate]);
 

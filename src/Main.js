@@ -6,7 +6,7 @@ import { fetchTracksByGenreAndLanguage, logoutSpotify } from "./spotifyService";
 import "./Main.css";
 import Paper from "./components/Paper";
 import Loader from "./components/Loader";
-import AudioVisualizer from "./components/AudioVisualizer";
+// import AudioVisualizer from "./components/AudioVisualizer";
 
 const Main = () => {
   const [cameraOn, setCameraOn] = useState(false);

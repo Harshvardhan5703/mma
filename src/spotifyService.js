@@ -3,32 +3,60 @@ import SpotifyWebApi from "spotify-web-api-js";
 const spotifyApi = new SpotifyWebApi();
 
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
-const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET; // Add this
+const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
 const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI;
-const AUTH_ENDPOINT = process.env.REACT_APP_AUTH_ENDPOINT;
+const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
+const TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
 
-const RESPONSE_TYPE = "token";
+const RESPONSE_TYPE = "code";
 
 const moodToGenreMap = {
-  Happy: ["pop", "dance"],
-  Sad: ["acoustic", "blues"],
-  Angry: ["rock", "metal"],
-  Surprised: ["electronic"],
-  Neutral: ["jazz", "classical"],
+   Happy: ["pop", "dance"],
+   Sad: ["acoustic", "blues"], 
+   Angry: ["rock", "metal"],
+   Surprised: ["electronic"], 
+   Neutral: ["jazz", "classical"], }; 
+   
+const languageKeywordMap = { 
+   en: "English",
+   es: "Reggaeton OR Latino",
+   fr: "Chanson Française",
+   hi: "Bollywood OR Desi",
+   de: "Schlager",
+   pa: "Punjabi OR Bhangra",
+   bho: "Bhojpuri", };
+
+
+export const getSpotifyAuthUrl = (email, password) => {
+  const scopes = encodeURIComponent("streaming user-read-email");
+  let authUrl = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&response_type=${RESPONSE_TYPE}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=${scopes}`;
+  
+  if (email && password) {
+    authUrl += `&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
+  }
+  
+  return authUrl;
 };
 
-const languageKeywordMap = {
-  en: "English",
-  es: "Reggaeton OR Latino",
-  fr: "Chanson Française",
-  hi: "Bollywood OR Desi",
-  de: "Schlager",
-  pa: "Punjabi OR Bhangra",
-  bho: "Bhojpuri",
-};
+export const getAccessTokenFromCode = async (code) => {
+  const response = await fetch(TOKEN_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': 'Basic ' + btoa(`${CLIENT_ID}:${CLIENT_SECRET}`)
+    },
+    body: `grant_type=authorization_code&code=${encodeURIComponent(code)}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}`
+  });
 
-export const getSpotifyAuthUrl = () => {
-  return `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=streaming%20user-read-email`;
+  if (!response.ok) {
+    throw new Error('Failed to obtain access token');
+  }
+
+  const tokenData = await response.json();
+  return {
+    token: tokenData.access_token,
+    expiresAt: Date.now() + tokenData.expires_in * 1000
+  };
 };
 
 export const getAccessTokenFromUrl = () => {

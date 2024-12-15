@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getSpotifyAuthUrl, getAccessTokenFromUrl, setSpotifyAccessToken, getStoredAccessToken, isTokenValid } from "./spotifyService";
+import { getSpotifyAuthUrl, getAccessTokenFromUrl, setSpotifyAccessToken, isTokenValid, getAccessTokenFromCode } from "./spotifyService";
 import { useNavigate } from "react-router-dom";
 import './Auth.css';
 
@@ -8,18 +8,21 @@ const Auth = () => {
   const [showDialog, setShowDialog] = useState(false);
 
   useEffect(() => {
-    const tokenData = getAccessTokenFromUrl();
-    if (tokenData) {
-      // Pass the full token data object
-      setSpotifyAccessToken(tokenData);
-      navigate("/main");
+    const queryParams = new URLSearchParams(window.location.search);
+    const code = queryParams.get('code');
+
+    if (code) {
+      getAccessTokenFromCode(code).then(tokenData => {
+        setSpotifyAccessToken(tokenData);
+        navigate("/main");
+      }).catch(error => {
+        console.error("Failed to obtain access token:", error);
+      });
     } else if (isTokenValid()) {
-      // Use isTokenValid instead of getStoredAccessToken directly
       navigate("/main");
     }
   }, [navigate]);
 
-  // Rest of the component remains the same as your original code
   const handleOpenDialog = () => {
     setShowDialog(true);
   };
@@ -31,6 +34,11 @@ const Auth = () => {
   const handleLogin = () => {
     const authUrl = getSpotifyAuthUrl();
     window.location = authUrl;
+  };
+
+  const handleGuestLogin = async () => {
+    const guestAuthUrl = getSpotifyAuthUrl('guest@example.com', 'guestPassword123'); // Update with guest credentials
+    window.location = guestAuthUrl;
   };
 
   return (
@@ -59,10 +67,12 @@ const Auth = () => {
           <button onClick={handleLogin} className="spotify-button">
             Connect to Spotify
           </button>
+          <button onClick={handleGuestLogin} className="guest-button">
+            Login as Guest
+          </button>
           <p id="know">Wanna know how I work? <button id="read" onClick={handleOpenDialog}>READ</button></p>
         </div>
       </div>
-      {/* Dialog remains the same */}
       {showDialog && (
         <div className="dialog-overlay" onClick={handleCloseDialog}>
           <div
